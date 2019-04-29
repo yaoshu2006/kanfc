@@ -1,0 +1,8 @@
+function getFullImgUrl(relativePath){
+    return "http://www.kanfucai.com" + relativePath;
+}
+
+
+module.exports = {
+    getFullImgUrl: getFullImgUrl
+}

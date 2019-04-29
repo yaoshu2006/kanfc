@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view class="scroll-container" upper-threshold="{{sortPanelDist}}" bindscroll="onToTop" scroll-y="true" style="height:calc(100% - 1px)">
+      
+    <view class="sort-panel" style="position:{{sortPanelPos}};top:{{sortPanelTop}}px">
+        <view class="sort-item on"><navigator open-type='switchTab' url='../fcssq/fcssq'>双色球</navigator></view>
+        <view class="sort-item"><navigator open-type='redirect' url='../fc3d/fc3d'>3D</navigator></view>
+        <view class="sort-item"><navigator open-type='redirect' url='../fc15x5/fc15x5'>15选5</navigator></view>
+        <view class="sort-item"><navigator open-type='redirect' url='../fc7lc/fc7lc'>七乐彩</navigator></view>
+    </view>
+    <view class="kjcx-panel">
+      <block wx:for="{{ssqList}}">
+        <view class="kjcx-item">
+          <view class="lotteryDate">
+          <span style="color:#3273c3;font-size:15px;">第{{item.lotteryIissue}}期</span>
+          <span style="color:#999999;font-size:14px;"> {{item.lotteryDate}}</span>
+          </view>
+          <view class="redball">
+          <span>{{item.red1}}</span>
+          <span>{{item.red2}}</span>
+          <span>{{item.red3}}</span>
+          <span>{{item.red4}}</span>
+          <span>{{item.red5}}</span>
+          <span>{{item.red6}}</span></view>
+          <view class="blueball"><span>{{item.blue1}}</span></view>
+        </view>
+
+      </block>
+    </view>
+  </scroll-view>
+  <view class="tabbar-border"></view>
+</view>

@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/fcssq/fcssq",
+    "pages/fc3d/fc3d",
+    "pages/home/home",
+    "pages/fc15x5/fc15x5",
+    "pages/fc7lc/fc7lc"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d93b56",
+    "navigationBarTitleText": "看福彩",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#888989",
+    "selectedColor": "#da3751",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "resources/images/ic_home.png",
+        "selectedIconPath": "resources/images/ic_home_selected.png"
+      },
+      {
+        "text": "开奖",
+        "pagePath": "pages/fcssq/fcssq",
+        "iconPath": "resources/images/ic_win.png",
+        "selectedIconPath": "resources/images/ic_win_selected.png"
+      },
+      {
+        "text": "阳光福彩",
+        "pagePath": "pages/home/home",
+        "iconPath": "resources/images/ic_find.png",
+        "selectedIconPath": "resources/images/ic_find_selected.png"
+      },
+      {
+        "text": "签到",
+        "pagePath": "pages/home/home",
+        "iconPath": "resources/images/ic_sign.png",
+        "selectedIconPath": "resources/images/ic_sign_selected.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/home/home",
+        "iconPath": "resources/images/ic_user.png",
+        "selectedIconPath": "resources/images/ic_user_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
