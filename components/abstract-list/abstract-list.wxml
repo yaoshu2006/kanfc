@@ -1,0 +1,65 @@
+<view class="kjcx-panel">
+    <block wx:for="{{listData}}" wx:key="index">
+        <view class="kjcx-item">
+            <block wx:if="{{offset==0}}">
+                <view class="lotteryDate">
+                    <span style="color:#3273c3;font-size:15px;">第{{item.lotteryIissue}}期</span>
+                    <span style="color:#999999;font-size:14px;"> {{item.lotteryDate}}</span>
+                </view>
+                <view class="redball">
+                    <span>{{item.red1}}</span>
+                    <span>{{item.red2}}</span>
+                    <span>{{item.red3}}</span>
+                    <span>{{item.red4}}</span>
+                    <span>{{item.red5}}</span>
+                    <span>{{item.red6}}</span>
+                </view>
+                <view class="blueball">
+                    <span>{{item.blue1}}</span>
+                </view>
+            </block>
+            <block wx:if="{{offset==1}}">
+                <view class="lotteryDate">
+                    <span style="color:#3273c3;font-size:15px;">第{{item.lotteryIissue}}期</span>
+                    <span style="color:#999999;font-size:14px;"> {{item.lotteryDate}}</span>
+                </view>
+                <view class="redball">
+                    <span>{{item.red1}}</span>
+                    <span>{{item.red2}}</span>
+                    <span>{{item.red3}}</span>
+                </view>
+            </block>
+            <block wx:if="{{offset==2}}">
+                <view class="lotteryDate">
+                    <span style="color:#3273c3;font-size:15px;">第{{item.lotteryIissue}}期</span>
+                    <span style="color:#999999;font-size:14px;"> {{item.lotteryDate}}</span>
+                </view>
+                <view class="redball">
+                    <span>{{item.red1}}</span>
+                    <span>{{item.red2}}</span>
+                    <span>{{item.red3}}</span>
+                    <span>{{item.red4}}</span>
+                    <span>{{item.red5}}</span>
+                </view>
+            </block>
+            <block wx:if="{{offset==3}}">
+                <view class="lotteryDate">
+                    <span style="color:#3273c3;font-size:15px;">第{{item.lotteryIissue}}期</span>
+                    <span style="color:#999999;font-size:14px;"> {{item.lotteryDate}}</span>
+                </view>
+                <view class="redball">
+                    <span>{{item.red1}}</span>
+                    <span>{{item.red2}}</span>
+                    <span>{{item.red3}}</span>
+                    <span>{{item.red4}}</span>
+                    <span>{{item.red5}}</span>
+                    <span>{{item.red6}}</span>
+                    <span>{{item.red7}}</span>
+                </view>
+                <view class="blueball">
+                    <span>{{item.blue1}}</span>
+                </view>
+            </block>
+        </view>
+    </block>
+</view>

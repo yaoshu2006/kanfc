@@ -1,0 +1,12 @@
+<wxs src="../../utils/tools.wxs" module="utils" />
+<view class="container">
+  <scroll-view class="scroll-container" upper-threshold="{{sortPanelDist}}" bindscroll="onToTop" scroll-y="true" style="100vh">   
+    <view class="news_content">
+        <view class="title">{{info.title}}</view>
+        <view class="time">时间：{{utils.dateFormat(info.createTime,'MM/dd')}}</view>
+    <rich-text class="content" nodes="{{info.content}}">
+    </rich-text>
+    </view>
+  </scroll-view>
+  <view class="tabbar-border"></view>
+</view>

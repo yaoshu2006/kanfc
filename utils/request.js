@@ -32,7 +32,7 @@ class Request {
         // console.log(`开始:${time}`)
         return new Promise((resolve, reject) => {
             wx.request({
-                url: (this._baseUrl || '') + url,
+                url: url.startsWith('http') ? url : (this._baseUrl || '') + url,
                 method: method || METHOD.GET,
                 data: data,
                 header: {

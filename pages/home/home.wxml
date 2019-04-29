@@ -1,27 +1,28 @@
 <!--index.wxml-->
+<wxs src="../../utils/tools.wxs" module="utils" />
 <view class="container">
   <scroll-view class="scroll-container" upper-threshold="{{sortPanelDist}}" bindscroll="onToTop" scroll-y="true" style="height:calc(100% - 1px)">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{imgUrls}}">
+        <block wx:for="{{imgUrls}}" wx:key="index">
             <swiper-item>
                 <image src="{{item}}" class="slide-image" style="height:{{windowWidth * 0.375}}px !important"/>
             </swiper-item>
         </block>
     </swiper>
     <view class="category-panel">
-        <view class="category-item">
+        <view class="category-item" bindtap="go_to_site_list" data-cid="0">
             <image class="category-item-image" src="../../resources/images/ic_index_tab_kind.png" />
             <text class="category-item-text">双色球</text>
         </view>
-        <view class="category-item">
+        <view class="category-item" bindtap="go_to_site_list" data-cid="1">
             <image class="category-item-image" src="../../resources/images/ic_index_tab_ten.png" />
             <text class="category-item-text">3D</text>
         </view>
-        <view class="category-item">
+        <view class="category-item" bindtap="go_to_site_list" data-cid="2">
             <image class="category-item-image" src="../../resources/images/ic_index_tab_share.png" />
             <text class="category-item-text">快乐彩</text>
         </view>
-        <view class="category-item">
+        <view class="category-item" bindtap="go_to_site_list" data-cid="3">
             <image class="category-item-image" src="../../resources/images/ic_index_tab_qa.png" />
             <text class="category-item-text">更多</text>
         </view>
@@ -30,7 +31,7 @@
         <view class="notice-panel">
             <image class="notice-image" src="../../resources/images/ic_notice.png" />
             <view class="notice-message" animation="{{animationNotice}}" style="opacity:{{noticeIdx>=0}};">
-                <span style="color:#999999">恭喜</span><span style="color:#3273c3">{{notices[noticeIdx].name}}</span><span style="color:#999999">{{notices[noticeIdx].time}}</span>{{notices[noticeIdx].goods}}
+                <span style="color:#999999">恭喜</span> <span style="color:#3273c3">{{utils.hidePhone(notices[noticeIdx].userName)}}</span> <span style="color:#999999"> {{utils.getDateDiff(notices[noticeIdx].createTime)}}</span> 兑换了 {{notices[noticeIdx].giftName}}
             </view>
         </view>
     </block>

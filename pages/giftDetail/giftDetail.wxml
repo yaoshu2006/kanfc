@@ -1,0 +1,53 @@
+<wxs src="../../utils/tools.wxs" module="utils" />
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="banner" duration="{{duration}}" circular="{{duration}}">
+    <swiper-item>
+        <image src="{{utils.getFullImgUrl(goods_info.picture)}}" class="slide-image" mode="aspectFill" bindtap="previewImage" data-src="{{utils.getFullImgUrl(goods_info.picture)}}"/>
+    </swiper-item>
+</swiper>
+<!--商品幻灯片 end-->
+<view class="info-title" style="border-top:1px solid #F6F6F6;background: #fff; padding:5px 15px;">
+    <text class="pro-title">{{goods_info.name}}</text>
+    <view class='pro-shengyu'>还剩
+        <span id="num">{{goods_info.num}}</span>件</view>
+</view>
+
+<view class="DetailTopIntro2" style="border-top:5px solid #F6F6F6;background: #fff; padding:5px 15px;">
+    <view class='DetailTopIntro2-1'>兑换价：
+        <span id="num" class="DetailTopIntro2-2">{{goods_info.drawJiFen}}</span>积分
+        <span class="DetailTopIntro2-3">原价:￥{{goods_info.price}}</span>
+    </view>
+    <view class="DetailTopIntro2Line">
+        <span class="DetailTopIntro2Line-btns" data="123">立即兑换</span>
+    </view>
+</view>
+
+
+<!--商品详情-->
+<view class='details_box' style="border-top:5px solid #F6F6F6;background: #fff; padding:5px 15px;">
+    <!-- <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;font-size:14px;background: #999;">
+     <view>礼品说明</view>
+  </view> -->
+    <view style='padding:10px 0px;'>
+        <view class="wxParse">
+            {{goods_info.shuoming}}
+        </view>
+    </view>
+</view>
+
+<!--底部浮动 start-->
+<!-- <view class="foot-nav mt15">
+  <view class="flex con gridXt tc">
+    <view class="add-cart sub f16">
+      <button class="add-cart-btn" bindtap='buy'>立即兑换</button>
+    </view>
+  </view>
+</view> -->
+
+<!-- 底部悬浮栏 -->
+<!-- <view class="detail-nav">
+  <image bindtap="toCar" src="../../images/detail/detail_btn_cart.png" />
+  <view class="line_nav"></view>
+  <image bindtap="addLike" src="{{isLike?'../../images/detail/detail_btn_mark_selected.png':'../../images/detail/detail_btn_mark_normal.png'}}" />
+  <button class="button-green" bindtap="addCar" formType="submit">加入购物车</button>
+  <button class="button-red" bindtap="immeBuy" formType="submit">立即购买</button>
+</view> -->

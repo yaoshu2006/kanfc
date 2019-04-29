@@ -1,0 +1,16 @@
+<view scroll-x="true" class="weui-navbar">
+    <block wx:for-items="{{tabs}}" wx:key="index">
+        <view id="{{index}}" class="{{activeIndex == index ?'item_on':''}} default-item" bindtap="tabClick" style="width:{{tabW}}px;"> {{item}} </view>
+    </block>
+    <view class="weui-navbar-slider" style="transform:translateX({{slideOffset}}px); width:{{tabW}}px; "></view>
+</view>
+<view class="rec" />
+<swiper current="{{activeIndex}}" style='height:{{scrollHeight}}px;' class="swiper-box" duration="100" bindchange="bindChange">
+    <block wx:for-items="{{tabs}}" wx:for-item="item" wx:key="index">
+        <swiper-item class="swiper-item">
+            <scroll-view style='height:{{scrollHeight}}px;' scroll-y='true' class="slide-view" bindscrolltolower='getdatalist' data-index='{{index}}'>
+                <abstract-list listData="{{listData[index]}}" offset="{{activeIndex}}"/>
+            </scroll-view>
+        </swiper-item>
+    </block>
+</swiper>

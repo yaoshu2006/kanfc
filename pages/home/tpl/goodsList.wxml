@@ -13,13 +13,13 @@
                 <view class="tips">兑换进度<span>{{goods.takeRate * 100}}%</span></view>
                 <view class="progress" style="width: calc(100% - 76px);"></view>
                 <view class="progress-take" style="width: calc((100% - 76px) * {{goods.takeRate}} );"></view>
-                <view class="btn">立即兑换</view>
+                <view class="btn" bindtap='toGiftDetail' data-index='{{index}}'>立即兑换</view>
             </view>
         </view>
 </template>
 
 <template name="goodsList">
-    <block wx:for="{{goodsList}}">
+    <block wx:for="{{goodsList}}" wx:key="index">
         <template is="goodsItem" data="{{index:index,goods:item}}"/>
     </block>
 </template>
