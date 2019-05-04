@@ -1,39 +1,55 @@
 <wxs src="../../../utils/tools.wxs" module="utils" />
 <scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
-    <view class=''>
+    <view class='toolArea2'>
         <picker range='{{type}}' range-key="{{'key'}}" value="{{typeVal}}" bindchange='bindPickerChange' data-index='1'>
-            类型 {{type[typeVal].key}}
+            <!-- 类型 --><view class='currentOption'> {{type[typeVal].key}}</view>
         </picker>
         <picker range='{{cycle}}' range-key="{{'key'}}" value="{{cycleVal}}" bindchange='bindPickerChange' data-index='2'>
-            时间 {{cycle[cycleVal].key}}
+            <!-- 时间--><view class='currentOption'> {{cycle[cycleVal].key}}</view> 
         </picker>
         <picker range='{{status}}' range-key="{{'key'}}" value="{{statusVal}}" bindchange='bindPickerChange' data-index='3'>
-            状态 {{status[statusVal].key}}
+            <!-- 状态--><view class='currentOption'> {{status[statusVal].key}}</view> 
         </picker>
     </view>
+<!-- 
 
-    <table class="homeTable" id="homeTable" cellspacing="0" cellpadding="0" bordercolor="#ccc" border="1" align="center" style="border-collapse: collapse; background:#fff">
-        <tr>
-            <td width="12%">方案号</td>
-            <td width="20%">彩种名</td>
-            <td width="13%">投入积分</td>
-            <td width="15%">状态</td>
-            <td width="20%">参与时间</td>
-        </tr>
-        <block wx:for="{{list}}" wx:key="index">
-            <tr>
-                <td>
-                    <code>{{item.id}}</code>
-                </td>
-                <td>{{item.lotteryName}}</td>
-                <td>
-                    <span>{{item.jiFen}}分</span>
-                </td>
-                <td>
-                    <b class="color1">{{item.statusStr}}</b>
-                </td>
-                <td>{{utils.dateFormat(item.initiateTime,'yyyy-MM-dd')}}</td>
-            </tr>
-        </block>
-    </table>
+<view class="biaoge">
+		<dt>方案号：<code>53</code></dt><code>
+		<dd>
+			<span>彩种名：福彩3D</span>
+			<span>投入积分：2分</span>
+			<span>状态：<b class="color1">成功</b></span>
+      <span style="padding: 0;margin: 0;"><a class="bets" >方案号：1,2,3,4</a>
+			</span>
+			<span style="padding: 0;margin: 0; width:100%;">参与时间：2018-01-17 10:38:21</span>
+      <span><a class="btn5" href="schemedetail.htm?schemeId=53">详细</a>
+				<a class="btn5" href="/wfc/threed.htm">继续购买</a></span>
+			
+		</dd>	
+	</code></view>
+ -->
+
+
+     <block wx:for="{{list}}" wx:key="index">
+    <view class="biaoge">
+      <dt>方案号：
+        <code>{{item.id}}</code>
+      </dt>
+      <code>
+        <dd>
+          <span>彩种名：{{item.lotteryName}}</span>
+          <span>投入积分：{{item.jiFen}}分</span>
+          <span>状态：
+            <b class="color1">{{item.statusStr}}</b>
+          </span>
+          <span style="padding: 0;margin: 0;"><a class="bets" >方案号：1,2,3,4</a>
+			</span>
+			<span style="padding: 0;margin: 0; width:100%;">参与时间：{{utils.dateFormat(item.initiateTime,'yyyy-MM-dd')}}</span>
+      <!-- <span><a class="btn5" href="schemedetail.htm?schemeId=53">详细</a>
+				<a class="btn5" href="/wfc/threed.htm">继续购买</a></span>
+			 -->
+        </dd>
+      </code>
+    </view>
+  </block>
 </scroll-view>

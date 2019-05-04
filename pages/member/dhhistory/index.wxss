@@ -1,1 +1,36 @@
-/* pages/member/dhhistory/index.wxss */
+/* pages/member/tianya/index.wxss */
+.container{
+  background-color: rgb(231, 229, 229);
+  font-size: 28rpx;
+}
+.massge{
+  overflow: hidden;
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 20rpx;
+  line-height: 1;
+}
+.massge-img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+ 
+}
+.massge-hd{
+  padding:20rpx 0rpx 30rpx 20rpx; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #666;
+}
+.massge-bd,.massge-ft{
+  padding:0rpx 0rpx 30rpx 40rpx; 
+  color: #666;
+}
+.massge-bd{
+  display: flex;
+  flex-direction: column;
+}
+.font-color-c24e4e{
+  color: #666;
+}

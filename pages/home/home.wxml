@@ -11,19 +11,19 @@
     </swiper>
     <view class="category-panel">
         <navigator url='wfcssq/wfcssq' class="category-item" bindtap="go_to_site_list" data-cid="0">
-            <image class="category-item-image" src="../../resources/images/ic_index_tab_kind.png" />
+            <image class="category-item-image" src="../../resources/images/lmLogoSsq.jpg" />
             <text class="category-item-text">双色球</text>
         </navigator>
         <navigator url='wfc3d/wfc3d' class="category-item" bindtap="go_to_site_list" data-cid="1">
-            <image class="category-item-image" src="../../resources/images/ic_index_tab_ten.png" />
+            <image class="category-item-image" src="../../resources/images/lmLogo3d.jpg" />
             <text class="category-item-text">3D</text>
         </navigator>
         <navigator url='wfc15x5/wfc15x5' class="category-item" bindtap="go_to_site_list" data-cid="2">
-            <image class="category-item-image" src="../../resources/images/ic_index_tab_share.png" />
+            <image class="category-item-image" src="../../resources/images/lmLogoQlc.jpg" />
             <text class="category-item-text">快乐彩</text>
         </navigator>
         <view class="category-item" bindtap="go_to_site_list" data-cid="3">
-            <image class="category-item-image" src="../../resources/images/ic_index_tab_qa.png" />
+            <image class="category-item-image" src="../../resources/images/ic_index_tab_kind.png" />
             <text class="category-item-text">更多</text>
         </view>
     </view>

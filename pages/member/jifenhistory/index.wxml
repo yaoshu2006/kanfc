@@ -1,8 +1,24 @@
 <wxs src="../../../utils/tools.wxs" module="utils" />
-<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
+<!-- <scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
     <block wx:for="{{list}}" wx:key="index">
         <view>
             {{item.message}}, {{item.jifen}}，{{utils.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}
         </view>
     </block>
+</scroll-view> -->
+
+
+<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
+    <block wx:for="{{list}}" wx:key="index">
+    <view class="massge">
+      <view class="massge-hd">
+        <image class="massge-img" src="../../resources/images/person/personal_sale_record.png"></image>
+        <view>{{item.message}}</view>
+      </view>
+      <text style="margin-top:30rpx;">积分:<text class="font-color-c24e4e"> {{item.jifen}}</text></text>
+      <view class="massge-bd font-color-666">
+        <text>时间：<text class="font-color-c24e4e font-size-15">{{utils.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</text></text>
+      </view>
+    </view>
+  </block>
 </scroll-view>

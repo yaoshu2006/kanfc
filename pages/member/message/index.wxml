@@ -1,7 +1,16 @@
-<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
-    <block wx:for="{{list}}" wx:key="index">
-        <view>
-            {{item.message}}, {{item.createTime}}
-        </view>
-    </block>
+<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;' class="container">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="massge">
+      <view class="massge-hd">
+        <image class="massge-img" src="../../resources/images/person/personal_card1.png"></image>
+        <view>系统消息</view>
+      </view>
+      <view class="massge-bd font-color-666">
+        <text>时间：<text class="font-color-c24e4e font-size-15">{{item.createTime}}</text></text>
+        <text style="margin-top:22rpx;"><text>内容：<text class="font-color-c24e4e font-size-15">{{item.message}}</text></text>
+        </text>
+
+      </view>
+    </view>
+  </block>
 </scroll-view>

@@ -1,1 +1,71 @@
 /* pages/member/tianya/index.wxss */
+.toolArea2 {
+    padding-top: 10px;
+    height: 60px;
+    width: 100%;
+}
+.currentOption {
+    width: 95px;
+    height: 57px;
+    line-height: 46px;
+    margin-right: 10px;
+    background: url(http://wap.kanfucai.com/home/images/icons2.jpg) 0px -795px;
+    text-align: center;
+    color: #628FF7;
+    font-size: 16px;
+    float: left;
+}
+
+.biaoge {
+    padding: 10px 10px;
+    clear: both;
+    border-top: 1px solid #dbdbdb;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+.biaoge dt {
+    line-height: 30px;
+    font-size: 14px;
+}
+code, kbd, pre, samp {
+    font-family: courier new,courier,monospace;
+}
+.biaoge dd {
+    line-height: 25px;
+}
+.biaoge dd span {
+    width: 50%;
+    float: left;
+    color: #666;
+}
+.color1, .homeTable tr.color1 td {
+    font-weight: bold;
+}
+.btn5 {
+    padding: 0 10px;
+    margin-right: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.btn4, .btn5 {
+    height: 30px;
+    line-height: 30px;
+    background: #68BF7F;
+    display: inline-block;
+    padding: 0 11px;
+    color: #fff !important;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+.bets {
+    height: 28px;
+    float: left;
+    margin: 0 5px 7px 0;
+    overflow: hidden;
+    background: #C4D760;
+    border-radius: 3px;
+    line-height: 28px;
+    text-align: center;
+    color: #fff;
+}

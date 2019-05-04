@@ -1,15 +1,54 @@
 <wxs src="../../../utils/tools.wxs" module="utils" />
 <scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
-    <view class=''>
+  <!-- <view class='toolArea2'>
         <picker range='{{type2}}' range-key="{{'key'}}" value="{{type2Val}}" bindchange='bindPickerChange' data-index='1'>
-            类型 {{type2[type2Val].key}}
+            <view class='currentOption'>类型 {{type2[type2Val].key}}</view>
         </picker>
         <picker range='{{cycle2}}' range-key="{{'key'}}" value="{{cycle2Val}}" bindchange='bindPickerChange' data-index='2'>
-            时间 {{cycle2[cycle2Val].key}}
+            <view class='currentOption'>时间 {{cycle2[cycle2Val].key}}</view>
         </picker>
-    </view>
+    </view> -->
+    <view class="container">
+  <block wx:for="{{list}}" wx:key="index">
+  <view class="massge" >
+        <view class="massge-hd">
+          <image class="massge-img" src="../../../resources/images/person/personal_site.png"></image>
+          <view>兑换记录</view>
+        </view>
+        <view class="massge-bd font-color-666">
+        <text>订单：<text class="font-color-c24e4e font-size-15">{{item.id}}</text></text>
+          <text style="margin-top:30rpx;">类型:<text class="font-color-c24e4e">{{item.memo}}</text></text>
+          <text style="margin-top:22rpx;"><text>商品名：<text class="font-color-c24e4e font-size-15">
+          {{item.giftName}}</text></text>
+          <text style="margin-left:40rpx;">积分:</text>{{item.giftName}}</text>
+          <text style="margin-top:30rpx;">状态变化:<text class="font-color-c24e4e">{{item.status==0?'完成':'未完成'}}</text></text>
+          <text style="margin-top:30rpx;">日期:<text class="font-color-c24e4e">{{utils.dateFormat(item.createTime,'yyyy-MM-dd')}}</text></text>
+        </view>
+      </view>
+  </block>
+  </view>
+  <!-- <view class="container">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="massge" >
+        <view class="massge-hd">
+          <image class="massge-img" src="../../../resources/images/person/personal_site.png"></image>
+          <view>兑换记录</view>
+        </view>
+        <view class="massge-bd font-color-666">
+          <text>订单：<text class="font-color-c24e4e font-size-15">{{item.id}}</text></text>
+          <text style="margin-top:30rpx;">类型:<text class="font-color-c24e4e">{{item.memo}}</text></text>
+          <text style="margin-top:22rpx;"><text>商品名：<text class="font-color-c24e4e font-size-15">{{{item.giftName}}</text></text>
+          <text style="margin-left:40rpx;">积分:</text>{{item.giftName}}</text>
+          <text style="margin-top:30rpx;">状态变化:<text class="font-color-c24e4e">{{item.status==0?'完成':'未完成'}}</text></text>
+          <text style="margin-top:30rpx;">日期:<text class="font-color-c24e4e">{{utils.dateFormat(item.createTime,'yyyy-MM-dd')}}</text></text>
 
-    <table class="homeTable" id="homeTable" cellspacing="0" cellpadding="0" bordercolor="#ccc" border="1" align="center" style="border-collapse: collapse; background:#fff">
+
+        </view>
+      </view>
+      
+  </block>
+    </view> -->
+  <!-- <table class="homeTable" id="homeTable" cellspacing="0" cellpadding="0" bordercolor="#ccc" border="1" align="center" style="border-collapse: collapse; background:#fff">
         <tr>
             <td width="15%">单号</td>
 			<td width="10%">活动类型</td>
@@ -32,5 +71,5 @@
                 <td>{{utils.dateFormat(item.createTime,'yyyy-MM-dd')}}</td>
             </tr>
         </block>
-    </table>
+    </table> -->
 </scroll-view>

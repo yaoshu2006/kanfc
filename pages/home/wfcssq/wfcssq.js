@@ -1,4 +1,5 @@
 import wfc from '../../../utils/wfc.js'
+import req from '../../../utils/request.js'
 Page({
 
     /**
@@ -193,6 +194,36 @@ Page({
             that.count()
         })
     },
+
+
+    buy: function() {
+        let that = this
+        if (that.data.ballbox.length == 0) {
+            wx.showModal({
+                title: "投注方案为空",
+                showCancel: false
+            })
+            return
+        }
+        let schemeNumber = ""
+        let a = []
+        for(let i in that.data.ballbox) {
+            let line = ""
+            line += that.data.ballbox[i].reds.join(",")
+            line += "," + that.data.ballbox[i].blues[0]
+            a.push(line)
+        }
+        schemeNumber = encodeURIComponent(a.join("|"))
+
+        req.get('/wx/buyScheme.htm?lotteryId=1003&schemeNumberType=50&schemeNumber=' + schemeNumber + '&multiple=' + that.data.count).then((res)=>{
+            that.reset()
+            that.clean()
+            wx.showModal({
+                title: res.data.message,
+                showCancel: false
+            })
+        })
+    }
 
 
 })

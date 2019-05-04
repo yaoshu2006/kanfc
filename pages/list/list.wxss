@@ -10,7 +10,7 @@ view, scroll-view {
 .weui-navbar {
     width: 100%;
     position: fixed;
-    border-bottom: 1px solid #00bba1;
+    border-bottom: 1px solid #e8e8e8;
     box-sizing: border-box;
     white-space: nowrap;
     z-index: 100;
@@ -28,20 +28,21 @@ view, scroll-view {
     /*width:25%;*/
     display: inline-block;
     text-align: center;
-    font-size: 32rpx;
+    font-size: 26rpx;
     box-sizing: border-box;
     padding-bottom: 20rpx;
+    color: #545454;
 }
 
 .weui-navbar .item_on {
-    color: #00bba1;
+    color: #db3652;
 }
 
 .weui-navbar-slider {
     position: absolute;
     height: 2px;
     content: "";
-    background: #00bba1;
+    background: #db3652;
     bottom: 0px;
     left: 12.5rpx;
     transition: transform 0.3s;
