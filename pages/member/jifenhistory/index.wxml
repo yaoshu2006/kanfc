@@ -1,0 +1,8 @@
+<wxs src="../../../utils/tools.wxs" module="utils" />
+<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
+    <block wx:for="{{list}}" wx:key="index">
+        <view>
+            {{item.message}}, {{item.jifen}}，{{utils.dateFormat(item.createTime,'yyyy-MM-dd hh:mm:ss')}}
+        </view>
+    </block>
+</scroll-view>

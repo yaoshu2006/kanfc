@@ -1,0 +1,271 @@
+/* pages/wfcssq/wfcssq.wxss */
+
+.wan_1 {
+    background: #f8f8f8;
+    height: auto;
+    overflow: hidden;
+}
+.w_left {
+    height: auto;
+    font-family: "宋体";
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+.redTitle {
+    text-align: left;
+    padding: 10px;
+}
+.w_top {
+    height: 45px;
+    background: #fff;
+}
+
+.w_top h2 view{
+    display: inline-block;
+}
+
+.w_top h2 .wan_hover {
+    color: #ba2636;
+    border-bottom: 3px solid #ba2636;
+}
+.w_top h2 navigator {
+    float: left;
+    width: 25.0%;
+    height: 45px;
+    line-height: 45px;
+    font-weight: normal;
+    text-align: center;
+    border-bottom: none;
+    font-family: "arial";
+}
+.redTitle {
+    text-align: left;
+    padding: 10px;
+
+    font-weight: bold;
+    font-size: 30rpx;
+    color: #ba2636;
+    font-family: "宋体";
+}
+.redTitle span {
+    color: #bbb;
+    font-size: 26rpx;
+}
+.redball {
+    height: auto;
+    padding: 20px 20px 10px;
+    overflow: hidden;
+}
+
+.redball view {
+    float: left;
+    font-size: 14px;
+    height: 33px;
+    line-height: 33px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+    width: 33px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #c30001;
+    font-family: "微软雅黑";
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.red1 {
+    /* background: url(../../resources/images/bred1.jpg) no-repeat left top !important; */
+    background-image:url(http://wap.kanfucai.com/home/images/bred1.jpg);
+    background-repeat: no-repeat;
+    color: #fff !important;
+    border: 1px solid #f8f8f8 !important;
+}
+.blueTitle {
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 30rpx;
+    color: #1e50a2;
+}
+.blueTitle span {
+    color: #bbb;
+    font-size: 26rpx;
+}
+.blueball {
+    height: auto;
+    padding: 20px;
+    overflow: hidden;
+}
+.blueball view {
+    float: left;
+    font-size: 14px;
+    height: 33px;
+    line-height: 33px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+    width: 33px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #215ab1;
+    font-family: "微软雅黑";
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+.blue1 {
+    background: url(http://wap.kanfucai.com/home/images/bblue1.jpg) no-repeat left top !important;
+    color: #fff !important;
+    border: 1px solid #f8f8f8 !important;
+}
+.w_bt {
+    padding: 11px 0 6px;
+    text-align: center;
+}
+.w_bt .sends {
+    background: url(http://wap.kanfucai.com/home/images/btn2.png) no-repeat scroll 0 0px;
+    cursor: pointer;
+    display: inline-block;
+    height: 34px;
+    width: 137px;
+}
+.selected_box {
+    clear: both;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
+    overflow: hidden;
+    padding-top: 20px;
+}
+.selected_list {
+    border: 1px solid #b6b6b6;
+}
+.selected_list dl {
+    border-left: 1px solid #fafafa;
+    border-top: 1px solid #f1f1f1;
+    height: 135rpx;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+}
+.selected_btnbox {
+    padding-left: 10px;
+    position: relative;
+    padding-top: 10px;
+    font-size: 24rpx;
+}
+.selected_btnbox a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #767676;
+}
+.selected_btn {
+    background: url(http://wap.kanfucai.com/home/images/bg3.jpg) repeat-x left top;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 96px;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+.betresult {
+    height: 27px;
+    line-height: 27px;
+    padding: 15px 0 11px;
+    text-align: center;
+}
+.holderWrapLeft, .holderWrapRight {
+    text-align: right;
+}
+.betresult strong {
+    color: #ba2636;
+    font-family: Verdana;
+    margin: 0 3px;
+}
+.betresult {
+    height: 27px;
+    line-height: 27px;
+    padding: 15px 0 11px;
+    text-align: center;
+    font-size: 24rpx;
+}
+.addSubtract {
+    border: 1px solid #abadb3;
+    display: inline-block;
+    height: 20px;
+    margin: 0 3px;
+    position: relative;
+    top: 6px;
+    width: 83px;
+    z-index: 50;
+}
+.addSubtract a.subtract, .addSubtract a.subtractDisable {
+    background-position: -72px 0;
+    border-right: 1px solid #abadb3;
+    float: left;
+}
+.addSubtract a.subtractDisable, .addSubtract a.subtractDisable:hover {
+    background-position: -72px -22px;
+    cursor: default;
+}
+.addSubtract a {
+    background: url(http://wap.kanfucai.com/home/images/icons1.png) no-repeat 0 0;
+    display: inline-block;
+    font-family: Simsun;
+    font-size: 14px;
+    height: 20px;
+    outline: 0 none;
+    width: 22px;
+    cursor: pointer;
+}
+.addSubtract input {
+    border: 0 none;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    text-align: center;
+    width: 37px;
+}
+.addSubtract a.add, .addSubtract a.addDisable {
+    background-position: -119px 0;
+    border-left: 1px solid #abadb3;
+    float: right;
+}
+.addSubtract a {
+    background: url(http://wap.kanfucai.com/home/images/icons1.png) no-repeat 0 0;
+    display: inline-block;
+    font-family: Simsun;
+    font-size: 14px;
+    height: 20px;
+    outline: 0 none;
+    width: 22px;
+    cursor: pointer;
+}
+.holderWrapLeft, .holderWrapRight {
+    text-align: right;
+}
+.betresult strong {
+    color: #ba2636;
+    font-family: Verdana;
+    margin: 0 3px;
+}
+.wan_btns {
+    padding: 40rpx 0;
+    text-align: center;
+}
+.wan_btns a {
+    background: url(http://wap.kanfucai.com/home/images/wan_btns.png) no-repeat 0 -180px;
+    cursor: pointer;
+    display: inline-block;
+    height: 43px;
+    width: 146px;
+    
+}

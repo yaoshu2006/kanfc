@@ -1,0 +1,74 @@
+<view class="wan_1">
+    <view class="w_top">
+        <h2>
+            <navigator class="wan_hover">双色球</navigator>
+            <navigator open-type='redirect' url="../wfc3d/wfc3d">福彩3D</navigator>
+            <navigator open-type='redirect' url="../wfc15x5/wfc15x5">15选5</navigator>
+            <navigator open-type='switchTab' url="../../list/list">开奖查询</navigator>
+        </h2>
+    </view>
+    <view class="w_left">
+        <view class="redTitle">
+            红球区
+            <span>至少选择6个红球</span>
+        </view>
+        <view class="redball">
+            <block wx:for="{{redball}}" wx:key="index">
+                <view class='{{item.checked ? "red1" : ""}}' bindtap='selectball' data-index='{{index}}' data-color='red' data-select='{{item.checked}}'>{{item.num}}</view>
+            </block>
+        </view>
+
+        <view class="blueTitle">
+            蓝球区
+            <span>至少选择1个蓝球</span>
+        </view>
+
+        <view class="blueball">
+            <block wx:for="{{blueball}}" wx:key="index">
+                <view class='{{item.checked ? "blue1" : ""}}' bindtap='selectball' data-index='{{index}}' data-color='blue' data-select='{{item.checked}}'>{{item.num}}</view>
+            </block>
+        </view>
+
+        <view class="w_bt">
+            <text bindtap='sends' class="sends" title="确认选号"></text>
+        </view>
+
+
+        <view class="selected_box clearfix">
+            <view id="select_list_box" class="selected_list">
+                <dl>
+                    <block wx:for="{{ballbox}}" wx:key="index">
+                        <dd><span class="nums"><strong class="c_ba2636">{{item.reds}}</strong>|<strong class="c_1e50a2">{{item.blues}}</strong></span><span class="sum">2积分</span></dd>
+                    </block>
+                </dl>
+            </view>
+            <view class="selected_btnbox">
+                <text bindtap='random' class="selected_btn" data-num='1'>机选1注</text>
+                <text bindtap='random' class="selected_btn" data-num='5'>机选5注</text>
+                <text bindtap='clean' class="selected_btn clear_btn">清空列表</text>
+            </view>
+
+        </view>
+
+        <view class="betresult buyType1">
+            <span class="holderWrapLeft">共
+                <strong class="betNumCount">{{ballbox.length}}</strong>注，</span>
+            <span class="beiNumWrap">我要买
+                <span class="addSubtract">
+                    <a bindtap='bindMinus' class="{{minusStat?  '' : 'subtractDisable' }}"></a>
+                    <input id="totalUnits2" disabled='disabled' style="ime-mode: disabled;" value="{{count}}" type="text" />
+                    <a bindtap='bindPlus' class="add"></a>
+                </span>倍，</span>
+            <span class="holderWrapRight">共
+                <strong class="betMoneyCount">{{value}}</strong>积分
+            </span>
+        </view>
+
+
+        <view class="wan_btns">
+            <a href="javascript:void(0);"></a>
+        </view>
+    </view>
+
+</view>
+<!--主体部分结束-->

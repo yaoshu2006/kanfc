@@ -1,0 +1,39 @@
+<wxs src="../../../utils/tools.wxs" module="utils" />
+<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
+    <view class=''>
+        <picker range='{{type}}' range-key="{{'key'}}" value="{{typeVal}}" bindchange='bindPickerChange' data-index='1'>
+            类型 {{type[typeVal].key}}
+        </picker>
+        <picker range='{{cycle}}' range-key="{{'key'}}" value="{{cycleVal}}" bindchange='bindPickerChange' data-index='2'>
+            时间 {{cycle[cycleVal].key}}
+        </picker>
+        <picker range='{{status}}' range-key="{{'key'}}" value="{{statusVal}}" bindchange='bindPickerChange' data-index='3'>
+            状态 {{status[statusVal].key}}
+        </picker>
+    </view>
+
+    <table class="homeTable" id="homeTable" cellspacing="0" cellpadding="0" bordercolor="#ccc" border="1" align="center" style="border-collapse: collapse; background:#fff">
+        <tr>
+            <td width="12%">方案号</td>
+            <td width="20%">彩种名</td>
+            <td width="13%">投入积分</td>
+            <td width="15%">状态</td>
+            <td width="20%">参与时间</td>
+        </tr>
+        <block wx:for="{{list}}" wx:key="index">
+            <tr>
+                <td>
+                    <code>{{item.id}}</code>
+                </td>
+                <td>{{item.lotteryName}}</td>
+                <td>
+                    <span>{{item.jiFen}}分</span>
+                </td>
+                <td>
+                    <b class="color1">{{item.statusStr}}</b>
+                </td>
+                <td>{{utils.dateFormat(item.initiateTime,'yyyy-MM-dd')}}</td>
+            </tr>
+        </block>
+    </table>
+</scroll-view>

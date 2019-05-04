@@ -1,0 +1,36 @@
+<wxs src="../../../utils/tools.wxs" module="utils" />
+<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
+    <view class=''>
+        <picker range='{{type2}}' range-key="{{'key'}}" value="{{type2Val}}" bindchange='bindPickerChange' data-index='1'>
+            类型 {{type2[type2Val].key}}
+        </picker>
+        <picker range='{{cycle2}}' range-key="{{'key'}}" value="{{cycle2Val}}" bindchange='bindPickerChange' data-index='2'>
+            时间 {{cycle2[cycle2Val].key}}
+        </picker>
+    </view>
+
+    <table class="homeTable" id="homeTable" cellspacing="0" cellpadding="0" bordercolor="#ccc" border="1" align="center" style="border-collapse: collapse; background:#fff">
+        <tr>
+            <td width="15%">单号</td>
+			<td width="10%">活动类型</td>
+			<td width="25%">商品名</td>
+			<td width="10%">状态</td>
+			<td width="20%">参与时间</td>
+        </tr>
+        <block wx:for="{{list}}" wx:key="index">
+            <tr>
+                <td>
+                    <code>{{item.id}}</code>
+                </td>
+                <td>{{item.memo}}</td>
+                <td>
+                    <span>{{item.giftName}}分</span>
+                </td>
+                <td>
+                    <b class="color1">{{item.status==0?'完成':'未完成'}}</b>
+                </td>
+                <td>{{utils.dateFormat(item.createTime,'yyyy-MM-dd')}}</td>
+            </tr>
+        </block>
+    </table>
+</scroll-view>

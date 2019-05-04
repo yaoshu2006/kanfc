@@ -7,7 +7,8 @@ const METHOD = {
 
 class Request {
     _header = {
-        Authorization: null
+        token: null,
+        uid: null
     }
     _baseUrl = null
 
@@ -15,9 +16,14 @@ class Request {
 
     constructor() {
         const token = wx.getStorageSync('token')
+        const uid = wx.getStorageSync('uid')
         if (token) {
-            this._header.Authorization = "Bearer" + " " + token
+            this._header.token =  token
         }
+        if (uid) {
+            this._header.uid = uid
+        }
+
     }
 
     intercept(res) {

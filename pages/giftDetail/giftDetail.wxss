@@ -281,16 +281,20 @@
     margin-right: -16px;
 }
 
+.add-cart {
+    margin: 0 20px;
+}
+
 .add-cart .add-cart-btn {
     background: linear-gradient(to right, #ff7a34, #ee32ff);
     color: #fff;
-    border-radius: 50px;
+    border-radius: 3px;
     padding: 0px;
-    width: 80%;
-    height: 35px;
-    line-height: 35px;
-    margin-top: 5px;
-    margin-right: 15px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-bottom: 50px;
+    margin: 10px 0px;
 }
 
 .kefu button {
@@ -329,7 +333,7 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: 100rpx;
 }
@@ -353,13 +357,17 @@ button {
     display: inline-block;
     font-size: 30rpx;
     border-radius: 0rpx;
-    width: 50%;
+    width: 100%;
     height: 100%;
     line-height: 100rpx;
 }
 
+.detail-nav {
+    background-color: gainsboro;
+}
+
 .detail-nav image {
-    width: 70rpx;
+    width: 50rpx;
     height: 50rpx;
     margin: 20rpx 40rpx;
 }
@@ -388,4 +396,96 @@ text {
     display: block;
     font-size: 25rpx;
     margin: 10rpx;
+}
+
+.maskLayer {
+    padding-right: 10rpx;
+    margin-right: 10rpx;
+    height: 16px;
+    line-height: 16px;
+}
+
+.maskLayer span {
+    float: right;
+    color: #ccc;
+}
+
+.choose {
+    background-color: gainsboro;
+    height: 600rpx;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+}
+
+.phone-box .title {
+    font-size: 24rpx;
+    color: #222;
+    margin: 30rpx 0 20rpx 20rpx;
+}
+
+.phone-box .input {
+    border: 1px #ddd solid;
+    border-left: 0;
+    border-right: 0;
+    height: 88rpx;
+    background-color: #f3eded;
+    padding-left: 20rpx;
+    font-size: 28rpx;
+}
+
+.phone-box .input.new-phone {
+    border-bottom: 1px #ddd solid;
+}
+
+.phone-box .code-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    height: 88rpx;
+    border-bottom: 1px #ddd solid;
+}
+
+.phone-box .code-box input {
+    border: 0;
+    flex: 1;
+}
+
+.phone-box .code-box button {
+    border: 1px #e61773 solid;
+    color: #e61773;
+    border-radius: 99px;
+    background-color: transparent !important;
+    margin: 15rpx 20rpx 15rpx 0;
+    font-size: 22rpx;
+    height: 58rpx;
+    width: 220rpx;
+}
+
+.phone-box .code-box button[disabled] {
+    color: #ccc;
+    border: 1px #ccc solid;
+}
+
+.bind-btn {
+    /* margin-top: 50rpx; */
+    margin: 50rpx 20rpx;
+}
+
+.submit {
+    margin-top: 30px;
+    display: flex;
+}
+
+.sub-button {
+    background-color: #0398e7;
+    color: #fff;
+    line-height: 1.8;
+    border-radius: 30px;
+    padding: 5px 100px;
 }

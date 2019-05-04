@@ -1,0 +1,7 @@
+<scroll-view scroll-y="true" bindscrolltolower='getdatalist' style='height:100vh;'>
+    <block wx:for="{{list}}" wx:key="index">
+        <view>
+            {{item.message}}, {{item.createTime}}
+        </view>
+    </block>
+</scroll-view>

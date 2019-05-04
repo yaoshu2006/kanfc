@@ -1,0 +1,28 @@
+<!--myCanvas.wxml-->
+<canvas canvas-id="myCanvas" class='canvas' />
+
+<!-- 预览分享图 这里就是上图展示的效果   -->
+<!-- 刚开始是隐藏的 生成分享图之后显示, 用一个布尔变量来控制 这里的样式大家看图就写出来了 -->
+<view hidden='{{hidden}}' class='preview' bindtap='cancel'>
+  <view class='preview2'>
+    <image src='../../resources/shareImage/yd05.jpg' mode='widthFix'></image>
+    <view class="now-date">01</view>
+    <view class="now-date-mon">2019-05</view>
+    <view class="bt-info">
+      <view class='wx-head'>
+        <image src='../../resources/shareImage/getheadimg.jpg'></image>
+      </view>
+      <view class='wx-head2'>
+        <view class='wx-head2-1'>看福彩（微信昵称）</view>
+        <view class='wx-head2-line'></view>
+        <view class='wx-head2-2'>让爱心汇成海洋,让真情放飞期</view>
+
+      </view>
+    </view>
+    <view>
+      <button type='primary' size='mini' bindtap='save'>保存分享</button>
+    </view>
+    <view class='upImage'>换一张</view>
+  </view>
+
+</view>

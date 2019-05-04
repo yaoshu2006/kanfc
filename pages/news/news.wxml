@@ -1,26 +1,23 @@
 <wxs src="../../utils/tools.wxs" module="utils" />
-<view class="container">
-    <scroll-view class="scroll-container" upper-threshold="{{sortPanelDist}}" bindscrolltolower='getdatalist' scroll-y="true" style="height:100vh">
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-            <block wx:for="{{imgUrls}}">
-                <swiper-item>
-                    <image src="{{item}}" class="slide-image" style="height:{{windowWidth * 0.375}}px !important" />
-                </swiper-item>
-            </block>
-        </swiper>
-        <block wx:for="{{newsList}}" wx:key="index">
-            <navigator open-type='navigateTo' url='../newsDetail/newsDetail?index={{index}}'>
-                <view class="carditems_list">
-                    <view class="carditems_list_dt">
-                        <image src="{{utils.getFullImgUrl(item.picture)}}" class='carditems_list_dt_img' />
-                    </view>
-                    <view class="carditems_list_dd">
-                        <h3 class="carditems_list_h3">{{item.title}}</h3>
-                        <view class="carditems_list_op">{{utils.dateFormat(item.createTime,'yyyy-MM-dd')}}</view>
-                    </view>
-                </view>
-            </navigator>
+<scroll-view class="scroll-container" upper-threshold="{{sortPanelDist}}" bindscrolltolower='getdatalist' scroll-y="true" style="height:100vh">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" style="height:{{windowWidth * 0.375}}px !important" />
+            </swiper-item>
         </block>
-    </scroll-view>
-    <view class="tabbar-border"></view>
-</view>
+    </swiper>
+    <block wx:for="{{newsList}}" wx:key="index">
+        <navigator open-type='navigateTo' url='../newsDetail/newsDetail?index={{index}}'>
+            <view class="carditems_list">
+                <view class="carditems_list_dt">
+                    <image src="{{utils.getFullImgUrl(item.picture)}}" class='carditems_list_dt_img' />
+                </view>
+                <view class="carditems_list_dd">
+                    <h3 class="carditems_list_h3">{{item.title}}</h3>
+                    <view class="carditems_list_op">{{utils.dateFormat(item.createTime,'yyyy-MM-dd')}}</view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+</scroll-view>

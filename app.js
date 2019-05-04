@@ -3,11 +3,20 @@ import req from 'utils/request.js'
 App({
     onLaunch: function() {
         let that = this
-        //调用API从本地缓存中获取数据
-        var logs = wx.getStorageSync('logs') || []
-        logs.unshift(Date.now())
-        wx.setStorageSync('logs', logs)
         that.configReq()
+    },
+
+    checkLoginInfo: function (url) {//验证登录状态
+        let token = wx.getStorageSync('token')
+        if (!token) {
+            wx.redirectTo({
+                url: '/pages/auth/index?back=' + encodeURIComponent(url),
+            })
+        } else {
+            wx.navigateTo({
+                url: url,
+            })
+        }
     },
     getUserInfo: function(cb) {
         var that = this;
@@ -33,7 +42,7 @@ App({
     configReq() {
         let that = this
         //配置baseUrl和拦截器，baseUrl例如 /api
-        req.baseUrl("http://127.0.0.1:8080")
+        req.baseUrl("http://api.sis1024.vip")
             .interceptor(res => {
                 switch (res.statusCode) {
                     case 401:
