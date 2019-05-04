@@ -28,7 +28,7 @@ Page({
     onLoad: function (options) {
         let that = this;
         that.setData({
-            tabs: ["双色球", "3D", "15选5", "七乐彩"],
+            tabs: ["双色球", "3D", "15选5", "七乐彩", "6+1"],
         })
 
         wx.getSystemInfo({
@@ -90,6 +90,9 @@ Page({
         } else if (current == 3 && !that.data.listData[3] && !that.data.firstLoading[3]) {
             console.log("第一次加载页面3")
             that.getListData(3)
+        } else if (current == 4 && !that.data.listData[4] && !that.data.firstLoading[4]) {
+            console.log("第一次加载页面4")
+            that.getListData(4)
         } 
     },
 
@@ -105,10 +108,13 @@ Page({
                 requestUrl= "https://weixin.nonot.cn/index.php/Index/tdNJson"
                 break
             case 2:
-                requestUrl= "https://weixin.nonot.cn/index.php/Index/klcNJson"
+                requestUrl = "https://weixin.nonot.cn/index.php/Index/swxwNJson"
                 break
             case 3:
                 requestUrl = "https://weixin.nonot.cn/index.php/Index/klcNJson"
+                break
+            case 4:
+                requestUrl = "https://weixin.nonot.cn/index.php/Index/ljyNJson"
                 break
         }
         req.get(requestUrl + "/page/" + (that.data.page[offset] ? that.data.page[offset] : 0))

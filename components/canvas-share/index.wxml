@@ -1,0 +1,14 @@
+<view class="share {{ visible ? 'show' : '' }}">
+    <canvas class="canvas-hide" canvas-id="share" style="width:{{canvasWidth*2}}rpx;height:{{canvasHeight*2}}rpx" />
+    <view class="content" style="transform:scale({{responsiveScale}});-webkit-transform:scale({{responsiveScale}});">
+        <image class="canvas" src="{{imageFile}}" style="width:{{canvasWidth/3*2}}rpx;height:{{canvasHeight/3*2}}rpx" />
+        <view class="footer" style="width:{{canvasWidth/3*2}}rpx">
+            <view class="save" bindtap="handleSave">
+                <button class="weui-btn mini-btn" size="mini" type="primary">保存到相册</button>
+            </view>
+            <view class="close" bindtap="handleClose">
+                <button class="weui-btn mini-btn" size="mini" open-type='share'>立即分享</button>
+            </view>
+        </view>
+    </view>
+</view>

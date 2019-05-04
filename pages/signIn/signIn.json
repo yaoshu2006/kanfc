@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "签到"
+    "navigationBarTitleText": "签到",
+    "usingComponents": {
+        "canvas-share": "../../components/canvas-share/index"
+    }
 }
