@@ -412,7 +412,6 @@ text {
 
 .choose {
     background-color: gainsboro;
-    height: 600rpx;
     margin-bottom: 0;
     padding-bottom: 0;
     width: 100%;

@@ -82,9 +82,15 @@ var dateFormat = function (timestamp, format) {
 }
 
 
+function toFixed(value){
+    return value.toFixed(0)
+}
+
+
 module.exports = {
     getFullImgUrl: getFullImgUrl,
     hidePhone: hidePhone,
     getDateDiff: getDateDiff,
-    dateFormat: dateFormat
+    dateFormat: dateFormat,
+    toFixed: toFixed
 }

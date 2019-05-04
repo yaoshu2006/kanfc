@@ -10,7 +10,7 @@
                 </view>
             </view>
             <view class="operating">
-                <view class="tips">兑换进度<span>{{100 - goods.num/ goods.giftCount * 100}}%</span></view>
+                <view class="tips">兑换进度<span>{{utils.toFixed(100 - goods.num/ goods.giftCount * 100)}}%</span></view>
                 <view class="progress" style="width: calc(100% - 76px);"></view>
                 <view class="progress-take" style="width: calc((100% - 76px) * {{1 - goods.num/ goods.giftCount}} );"></view>
                 <view class="btn" bindtap='toGiftDetail' data-id='{{goods.ID}}'>立即兑换</view>

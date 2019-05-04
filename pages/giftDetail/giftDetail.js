@@ -22,8 +22,8 @@ Page({
      */
     onLoad: function(options) {
         let that = this
-        let giftId = options.id
-        req.get('/wx/giftDetail.htm?giftId=' + giftId).then((res)=>{
+        that.data.giftId = options.id
+        req.get('/wx/giftDetail.htm?giftId=' + that.data.giftId).then((res)=>{
             that.setData({
                 goods_info: res.data.gift
             })
@@ -67,6 +67,52 @@ Page({
         imglist.push(current)
         wx.previewImage({
             urls: imglist // 需要预览的图片http链接列表  
+        })
+    },
+
+    hideModal: function(){
+        let that = this
+        that.setData({
+            chooseAddress: false
+        })
+    },
+
+    formSubmit: function(e) {
+        let that = this
+        let contact = e.detail.value
+        let msg = ""
+        if (contact.consignee.length == 0) {
+            msg = "请输入收货人姓名"
+        } else if (contact.phonenum.length == 0) {
+            msg = "请输入收货人手机号"
+        } else if (contact.address.length == 0) {
+            msg = "请输入收货人地址"
+        } 
+        if (msg.length != 0) {
+            wx.showModal({
+                title: msg,
+                showCancel: false
+            })
+            return
+        }
+        req.get('/wx/dunhuan.htm?giftId=' + that.data.giftId
+            + '&consignee=' + contact.consignee
+            + '&phonenum=' + contact.phonenum
+            + '&address=' + contact.address
+        ).then((res)=>{
+            console.log(res)
+            wx.showModal({
+                title: res.data.message,
+                showCancel: false,
+                success(res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定')
+                        wx.switchTab({
+                            url: '../home/home',
+                        })
+                    }
+                }
+            })
         })
     }
 })
