@@ -1,22 +1,17 @@
 <!--bindAccount.wxml 绑定账号-->
 <view class="phone-box">
-    <!-- <view class="check-box">
-        <view class="title">输入您当前微信账号绑定的手机号码以校验信息</view>
-        <input class="input" type="number" value="{{oldUserPhone}}" placeholder="手机号码" bindblur="checkOldPhone"/>
-    </view> -->
-    <view class="edit-box">
-        <view class="title">输入您需要绑定的新手机号码</view>
-        <view class='section'>
-            <input class="input new-phone" placeholder="请输入手机号码" type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus/>
-            <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">发送</text>
-            <text wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text>
+    <form bindsubmit="onSubmit">
+        <view class="edit-box">
+            <view class="title">输入您需要绑定的新手机号码</view>
+            <view class='section'>
+                <input class="input new-phone" placeholder="请输入手机号码" type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus/>
+                <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">发送</text>
+                <text wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text>
+            </view>
+            <view class="section">
+                <input class='input' placeholder="短信验证码" type="number" bindinput="addCode" />
+            </view>
         </view>
-        <view class="section">
-            <input class='input' placeholder="短信验证码" type="number" bindinput="addCode" />
-        </view>
-    </view>
-    <button class="bind-btn" type="primary" hover-class="none" bindtap="submit">确认绑定</button>
+        <button class="bind-btn" type="primary" hover-class="none" form-type='submit'>确认绑定</button>
+    </form>
 </view>
-<!-- <view class="submit">
-    <button class="sub-button">确认绑定</button>
-</view> -->

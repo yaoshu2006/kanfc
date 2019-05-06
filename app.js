@@ -1,4 +1,5 @@
 import req from 'utils/request.js'
+import util from 'utils/util.js'
 //app.js
 App({
     onLaunch: function() {
@@ -42,13 +43,21 @@ App({
     configReq() {
         let that = this
         //配置baseUrl和拦截器，baseUrl例如 /api
-        req.baseUrl("http://api.sis1024.vip")
+        req.baseUrl("http://127.0.0.1:8080")
             .interceptor(res => {
                 switch (res.statusCode) {
                     case 401:
-                        wx.showToast({
-                            icon: 'loading',
-                            title: '重新登录',
+                        wx.showModal({
+                            title: "温馨提示，使用此功能，需要登录",
+                            showCancel: false,
+                            success(res) {
+                                if (res.confirm) {
+                                    console.log('用户点击确定', util.getCurrentPageUrlWithArgs())
+                                    wx.navigateTo({
+                                        url: '/pages/auth/index?redirect_url=' + util.getCurrentPageUrlWithArgs(),
+                                    })
+                                }
+                            }
                         })
                         return false;
                     case 200:

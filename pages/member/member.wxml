@@ -1,71 +1,37 @@
 <!--pages/member/member.wxml-->
 <view class="userinfo">
 
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="userinfo-btn"> 点击微信授权 </button>
-
-  <block wx:else>
-  
+    <button wx:if="{{!hasUserInfo && canIUse}}" bindtap='toAuth' class="userinfo-btn">点击登录</button>
+    <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="../../resources/shareImage/getheadimg.jpg" background-size="cover"></image>
-  
-    <text class="userinfo-nickname">看福彩(积分:168分)</text>
-
-  </block>
-</view>
-<!-- <view class="separate"></view>
-<view class="order" catchtap="toOrder">
-
-  <text class="myorder-text">我的订单</text>
-  <text class="myorderlook-text">查看全部订单</text>
-</view>
-<view class="line"></view>
-<view class="navs">
-
-  <block wx:for-items="{{orderItems}}" wx:key="name">
-  
-    <view class="nav-item" catchtap="toOrder" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
-    
-      <image src="{{item.imageurl}}" class="nav-image" />
-      <text>{{item.name}}</text>    </view>
+        <text class="userinfo-nickname">{{user.nickName || user.name}}(积分:{{jifen.jiFen}}分)</text>
+        <block wx:if='{{user.userMode == 1}}'>
+            <navigator url='../bindAccount/bindAccount'>去绑定</navigator>
+        </block>
     </block>
-</view> -->
+
+
+</view>
 <view class="separate"></view>
 <view class="person-list">
-
-
-  <navigator url='message/index' class="list-item">
-  
-    <image class="item-image" src="../../resources/images/person/personal_card1.png"></image>
-  
-    <text class="item-text">消息通知</text>
-  </navigator>
-
-  <view class="person-line"></view>
-
-  <navigator url='tianya/index' class="list-item">
-  
-    <image class="item-image" src="../../resources/images/person/personal_favorite1.png"></image>
-  
-    <text class="item-text">福彩体验历史</text>
-  </navigator>
-
-  <view class="person-line"></view>
-
-  <navigator url='dhhistory/index' class="list-item">
-  
-    <image class="item-image" src="../../resources/images/person/personal_site.png"></image>
-  
-    <text class="item-text">抽奖兑换记录</text>
-  </navigator>
-
-  <view class="person-line"></view>
-
-  <navigator url='jifenhistory/index' class="list-item">
-  
-    <image class="item-image" src="../../resources/images/person/personal_sale_record.png"></image>
-  
-    <text class="item-text">我的积分明细</text>
-  </navigator>
-
-  
+    <navigator url='message/index' class="list-item">
+        <image class="item-image" src="../../resources/images/person/personal_card1.png"></image>
+        <text class="item-text">消息通知</text>
+    </navigator>
+    <view class="person-line"></view>
+    <navigator url='tianya/index' class="list-item">
+        <image class="item-image" src="../../resources/images/person/personal_favorite1.png"></image>
+        <text class="item-text">福彩体验历史</text>
+    </navigator>
+    <view class="person-line"></view>
+    <navigator url='dhhistory/index' class="list-item">
+        <image class="item-image" src="../../resources/images/person/personal_site.png"></image>
+        <text class="item-text">抽奖兑换记录</text>
+    </navigator>
+    <view class="person-line"></view>
+    <navigator url='jifenhistory/index' class="list-item">
+        <image class="item-image" src="../../resources/images/person/personal_sale_record.png"></image>
+        <text class="item-text">我的积分明细</text>
+    </navigator>
 </view>
 <view class="separate"></view>

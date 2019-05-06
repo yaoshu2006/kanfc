@@ -1,4 +1,4 @@
-const req = require('../../utils/request.js')
+import req from '../../utils/request.js'
 var app = getApp();
 Page({
 
@@ -6,20 +6,36 @@ Page({
      * 页面的初始数据
      */
     data: {
-        backUrl: ""
+        code: '',
+        redirect_url: ''
+    },
+
+    handBackIndex() {
+        wx.reLaunch({
+            url: 'pages/home/home',
+        })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         let that = this
         that.setData({
-            backUrl: decodeURIComponent(options.back)
+            redirect_url: decodeURIComponent(options.redirect_url)
+        })
+        wx.login({
+            success: function(res) {
+                if (res.code) {
+                    that.setData({
+                        code: res.code
+                    })
+                }
+            }
         })
     },
 
-    bindGetUserInfo: function (e) {
+    bindGetUserInfo: function(e) {
         if (!e.detail.userInfo) {
             return;
         }
@@ -27,65 +43,58 @@ Page({
         this.login();
     },
 
-    login: function () {
+    login: function() {
         let that = this;
-        wx.login({
-            success: function (res) {
-                
-                // req.post('/oauth/wxLogin.htm', {
-                //     js_code: res.code
-                // }).then(function (res) {
-                //     if (res.data.code == 10000) {
-                //         wx.setStorageSync('token', res.data.token)
-                //         // 去注册
-                //         that.registerUser();
-                //         return;
-                //     }
-                //     if (res.data.code != 0) {
-                //         // 登录错误
-                //         wx.hideLoading();
-                //         wx.showModal({
-                //             title: '提示',
-                //             content: '无法登录，请重试',
-                //             showCancel: false
-                //         })
-                //         return;
-                //     }
-                //     wx.setStorageSync('token', res.data.token)
-                //     wx.setStorageSync('uid', res.data.uid)
-                //     // 回到原来的地方放
-                //     app.navigateToLogin = false
-                //     wx.navigateBack();
-                // })
+        req.post('/wx/login.htm', {}, {
+            code: that.data.code
+        }).then(function(res) {
+            wx.setStorageSync("uesrMode", res.data.token.uesrMode)
+            req.token(res.data.token.token, res.data.token.uid)
+            if (res.data.token.uesrMode == 0 || res.data.token.uesrMode == 1) {
+                // 登录成功
+                that.registerUser();
+                return;
+            }
+            if (res.data.uesrMode == 2) {
+                // 登录错误
+                wx.hideLoading();
+                wx.showModal({
+                    title: '提示',
+                    content: '无法登录，请重试',
+                    showCancel: false
+                })
+                return;
+            }
+            if (that.data.redirect_url) {
+                wx.reLaunch({
+                    url: that.data.redirect_url,
+                })
+            } else {
+                that.handBackIndex()
             }
         })
     },
 
-    registerUser: function () {
+    registerUser: function() {
         let that = this;
-        wx.login({
-            success: function (res) {
-                let code = res.code; // 微信登录接口返回的 code 参数，下面注册接口需要用到
-                wx.getUserInfo({
-                    success: function (res) {
-                        let iv = res.iv;
-                        let encryptedData = res.encryptedData;
-                        let referrer = '' // 推荐人
-                        let referrer_storge = wx.getStorageSync('referrer');
-                        if (referrer_storge) {
-                            referrer = referrer_storge;
-                        }
-                        // 下面开始调用注册接口
-                        api.post('/user/register/complex', {
-                            code: code,
-                            encryptedData: encryptedData,
-                            iv: iv,
-                            referrer: referrer
-                        }).then(function (res) {
-                            wx.hideLoading();
-                            that.login();
-                        })
-                    }
+        wx.getUserInfo({
+            success: function(res) {
+                let iv = res.iv;
+                let encryptedData = res.encryptedData;
+                let referrer = '' // 推荐人
+                let referrer_storge = wx.getStorageSync('referrer');
+                if (referrer_storge) {
+                    referrer = referrer_storge;
+                }
+                // 下面开始调用注册接口
+                req.post('/user/register/complex', {
+                    code: that.data.code,
+                    encryptedData: encryptedData,
+                    iv: iv,
+                    referrer: referrer
+                }).then(function(res) {
+                    wx.hideLoading();
+                    that.login();
                 })
             }
         })

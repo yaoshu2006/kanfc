@@ -64,8 +64,9 @@ Page({
 
     sendMsg: function () {
         var phoneNum = this.data.phoneNum;
-        var sessionId = wx.getStorageSync('sessionId');
-        //TODO 获取验证码
+        req.get('/wx/sendMsg.htm?phoneNum=' + phoneNum).then((res)=>{
+            console.log(r)
+        })
         this.setData({
             alreadySend: true,
             send: false
@@ -124,8 +125,11 @@ Page({
 
     onSubmit: function () {
         var phoneNum = this.data.phoneNum;
-        var code = this.data.code;
-        var otherInfo = this.data.otherInfo;
-        var sessionId = wx.getStorageSync('sessionId');
+        var yzm = this.data.code;
+        req.get('/wx/bindUser.htm?phoneNum=' + phoneNum + '&yzm=' + yzm).then((res)=>{
+            if (res.data.code == 0) {
+                //重新登录
+            }
+        })
     }
 })

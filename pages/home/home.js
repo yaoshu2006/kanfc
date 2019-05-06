@@ -109,10 +109,9 @@ Page({
     },
     toGiftDetail(e) {
         let id = e.currentTarget.dataset.id;
-        app.checkLoginInfo('/pages/giftDetail/giftDetail?id=' + id)
-        // wx.navigateTo({
-        //     url: '/pages/giftDetail/giftDetail?index=' + index,
-        // })
+        wx.navigateTo({
+            url: '/pages/giftDetail/giftDetail?id=' + id,
+        })
 
     }
 })

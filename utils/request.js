@@ -7,8 +7,8 @@ const METHOD = {
 
 class Request {
     _header = {
-        token: null,
-        uid: null
+        token: "",
+        uid: ""
     }
     _baseUrl = null
 
@@ -45,7 +45,7 @@ class Request {
                     ...this._header,
                     ...header
                 },
-                // success: res => this.intercept(res) && resolve(res),
+                success: res => this.intercept(res) && resolve(res),
                 complete: (res) => {
                     wx.hideLoading()
                     console.log('request:'+ url, `耗时:${Date.now() - time}ms`)
@@ -54,30 +54,27 @@ class Request {
                     } else if (res.statusCode === 401) {
                         // 401 为鉴权失败 很大可能是token过期
                         // 重新登录 并且重复请求
-                        wx.login({
-                            success: (res) => {
-                                let code = res.code
-                                if (code) {
-                                    that.post('/oauth/wx/login', {}, {
-                                        code: code
-                                    }).then((res) => {
-                                        that.token(res.data.token)
-                                        wx.hideLoading()
-                                        //如果已经授权
-                                        wx.setStorageSync('uid', res.data.uid)
-                                        //TODO 这里的header是空的
-                                        that.request({ url, method, header, data}).then(res => {
-                                            resolve(res)
-                                        })
-                                    }, () => {
-                                        wx.showModal({
-                                            title: '服务器连接失败',
-                                            content: '服务器连接失败，请检查服务器端口',
-                                        })
-                                    })
-                                }
-                            }
-                        })
+                        // wx.login({
+                        //     success: (res) => {
+                        //         let code = res.code
+                        //         if (code) {
+                        //             that.post('/wx/login.htm', {}, {
+                        //                 code: code
+                        //             }).then((res) => {
+                        //                 that.token(res.data.token.token, res.data.token.uid)
+                        //                 wx.hideLoading()
+                        //                 that.request({ url, method, header, data}).then(res => {
+                        //                     resolve(res)
+                        //                 })
+                        //             }, () => {
+                        //                 wx.showModal({
+                        //                     title: '服务器连接失败',
+                        //                     content: '服务器连接失败，请检查服务器端口',
+                        //                 })
+                        //             })
+                        //         }
+                        //     }
+                        // })
                     } else {
                         reject(res)
                     }
@@ -103,9 +100,11 @@ class Request {
         return this.request({url, method: METHOD.DELETE, header, data})
     }
 
-    token(token) {
+    token(token, uid) {
         wx.setStorageSync("token", token)
-        this._header.Authorization = "Bearer" + " " +token
+        wx.setStorageSync("uid", uid)
+        this._header.token = token
+        this._header.uid = uid
         return this
     }
 
